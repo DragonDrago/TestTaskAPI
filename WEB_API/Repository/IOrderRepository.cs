@@ -8,8 +8,8 @@ namespace WEB_API.Repository
 {
     public interface IOrderRepository
     {
-        Task<OrderModel> FindByIdAsync(int id);
-        Task<int> AddOrderAsync(OrderModel orderModel);
+        //Task<OrderModel> FindByIdAsync(int id);
+        Task<OrderModel> AddOrderAsync(OrderModel orderModel);
 
     }
 }

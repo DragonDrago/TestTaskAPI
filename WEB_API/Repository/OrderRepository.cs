@@ -15,29 +15,23 @@ namespace WEB_API.Repository
         {
             this.applicationDbContext = applicationDbContext;
         }
-        public async Task<int> AddOrderAsync(OrderModel orderModel)
+        public async Task<OrderModel> AddOrderAsync(OrderModel orderModel)
         {
-            var entity = new OrderModel()
-            {
-                Name = orderModel.Name,
-                CompanyNumber = orderModel.CompanyNumber,
-                CompanyName = orderModel.CompanyName
-            };
-            applicationDbContext.OrderModels.Add(entity);
+            applicationDbContext.OrderModels.Add(orderModel);
             await applicationDbContext.SaveChangesAsync();
-            return entity.Id;
+            return orderModel;
         }
 
-        public async Task<OrderModel> FindByIdAsync(int id)
-        {
-            var record = await applicationDbContext.OrderModels.Where(x => x.Id == id).Select(x => new OrderModel()
-            {
-                Id = x.Id,
-                Name = x.Name,
-                CompanyName = x.CompanyName,
-                CompanyNumber = x.CompanyNumber
-            }).FirstOrDefaultAsync();
-            return record;
-        }
+        //public async Task<OrderModel> FindByIdAsync(int id)
+        //{
+        //    var record = await applicationDbContext.OrderModels.Where(x => x.Id == id).Select(x => new OrderModel()
+        //    {
+        //        Id = x.Id,
+        //        Name = x.Name,
+        //        CompanyName = x.CompanyName,
+        //        CompanyNumber = x.CompanyNumber
+        //    }).FirstOrDefaultAsync();
+        //    return record;
+        //}
     }
 }

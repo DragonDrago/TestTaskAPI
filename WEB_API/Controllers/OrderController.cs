@@ -39,9 +39,9 @@ namespace WEB_API.Controllers
             {
                 return BadRequest(ModelState);
             }
-             await repositoryDbContext.AddOrderAsync(orderEntity);
+            var entity = await repositoryDbContext.AddOrderAsync(orderEntity);
             //return CreatedAtAction(nameof(GetOrderById), new {id=id,controller="order"},id);
-            return Ok(orderEntity);
+            return Ok(entity);
         }
 
       
