@@ -11,7 +11,6 @@ namespace WEB_API.Repository
     //если это действительно большой проект с несколькими моделями.
     public interface IOrderRepository
     {
-        //Task<OrderModel> FindByIdAsync(int id);
         Task<OrderModel> AddOrderAsync(OrderModel orderModel);
 
     }
